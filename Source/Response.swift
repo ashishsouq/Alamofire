@@ -252,7 +252,7 @@ protocol Response {
 
 extension Response {
     mutating func add(_ metrics: AnyObject?) {
-        #if !os(watchOS)
+        #if !os(watchOS) && !os(iOS)
             guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) else { return }
             guard let metrics = metrics as? URLSessionTaskMetrics else { return }
 
