@@ -574,11 +574,10 @@ open class UploadRequest: DataRequest {
 
 // MARK: -
 
-#if !os(watchOS)
+#if !os(watchOS) && !os(iOS)
 
 /// Specific type of `Request` that manages an underlying `URLSessionStreamTask`.
 open class StreamRequest: Request {
-    @available(iOSApplicationExtension 9.0, *)
     enum Streamable: TaskConvertible {
         case stream(hostName: String, port: Int)
         case netService(NetService)
